@@ -5,6 +5,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from time import sleep
 from webdriver_manager.core import driver
 
+
 # Amazon logo
 driver.find_element(By.XPATH, "//i [@aria-label='Amazon']")
 
