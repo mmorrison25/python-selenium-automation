@@ -15,13 +15,6 @@ def click_cart(context):
     sleep(2)
 
 
-@then('Your cart is empty message shown')
-def verify_cart_is_empty(context):
-    cart_message = context.driver.find_element(By.CSS_SELECTOR, 'h1').text
-    assert cart_message == 'Your cart is empty'
-    print('Test case passed')
-
-
 @when('Sign In option is clicked')
 def click_sign_in(context):
     context.driver.find_element(By.CSS_SELECTOR, 'a[data-test="@web/AccountLink"]').click()
@@ -34,8 +27,8 @@ def click_sign_in_from_side_nav(context):
     sleep(2)
 
 
-@then('Sign In form opened')
-def verify_sign_in_form_opened(context):
-    sign_in_header = context.driver.find_element(By.CSS_SELECTOR, 'h1 span').text
-    assert sign_in_header == 'Sign into your Target account'
-    print('Test case passed')
+@when('Search for {product}')
+def search_for_product(context, product):
+    context.driver.find_element(By.CSS_SELECTOR, 'input[data-test="@web/Search/SearchInput"]').send_keys(product)
+    context.driver.find_element(By.CSS_SELECTOR, 'button[data-test="@web/Search/SearchButton"]').click()
+    sleep(5)
