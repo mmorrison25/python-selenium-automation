@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from behave import given, when, then
 from time import sleep
 
-BENEFIT_BOX = (By.CSS_SELECTOR, '[class="styles__BenefitCard-sc-9mx6dj-2 lgQxFm"]')
+BENEFIT_BOX = (By.CSS_SELECTOR, 'li[class*="styles__BenefitCard"]')
 
 
 @given('Target circle page is launched')
