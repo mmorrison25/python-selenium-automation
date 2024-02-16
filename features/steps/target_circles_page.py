@@ -8,7 +8,6 @@ BENEFIT_BOX = (By.CSS_SELECTOR, 'li[class*="styles__BenefitCard"]')
 @given('Target circle page is launched')
 def open_target_circles_page(context):
     context.driver.get("https://www.target.com/circle")
-    sleep(2)
 
 
 @then('Verify {expected_amount} benefit boxes are displayed')
