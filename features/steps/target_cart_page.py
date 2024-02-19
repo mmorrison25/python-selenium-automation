@@ -10,7 +10,6 @@ ORDER_SUMMARY = (By.CSS_SELECTOR, 'div[data-test="cart-order-summary"] div[class
 
 @then('Verify "Your cart is empty" message shown')
 def verify_cart_is_empty(context):
-    # context.wait.until(EC.presence_of_element_located(EMPTY_CART))
     context.app.cart_page.verify_empty_cart()
 
 
