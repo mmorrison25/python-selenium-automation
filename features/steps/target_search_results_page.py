@@ -15,8 +15,4 @@ def add_item_cart(context):
 
 @then('Search results for {expected_product} are shown')
 def verify_search_results_shown(context, expected_product):
-    context.wait.until(EC.visibility_of_element_located(SEARCH_RESULTS_HEADING), message='Unable to locate search '
-                                                                                         'results heading')
-    result_text = context.driver.find_element(*SEARCH_RESULTS_HEADING).text
-    assert expected_product in result_text, f'Expected word {expected_product} not in {result_text}'
-    print('Test case passed')
+    context.app.search_results_page.verify_search_results_shown(expected_product)

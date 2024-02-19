@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
 from behave import given, when
 from selenium.webdriver.support import expected_conditions as EC
-from time import sleep
 
 
 CART_ICON = (By.CSS_SELECTOR, 'div [data-test="@web/CartIcon"]')
@@ -13,12 +12,12 @@ SEARCH_ICON = (By.CSS_SELECTOR, 'button[data-test="@web/Search/SearchButton"]')
 
 @given('Target site is launched')
 def open_target_site(context):
-    context.driver.get("https://www.target.com/")
+    context.app.main_page.open_main()
 
 
 @when('Cart icon is clicked')
 def click_cart(context):
-    context.driver.find_element(*CART_ICON).click()
+    context.app.main_page.click_cart()
 
 
 @when('Sign In option is clicked')
@@ -33,6 +32,4 @@ def click_sign_in_from_side_nav(context):
 
 @when('Search for {product}')
 def search_for_product(context, product):
-    context.driver.find_element(*SEARCH_FIELD).send_keys(product)
-    context.driver.find_element(*SEARCH_ICON).click()
-    sleep(5)
+    context.app.header.search_product()
