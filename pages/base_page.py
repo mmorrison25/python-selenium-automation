@@ -28,8 +28,15 @@ class Page:
     def wait_element_clickable_click(self, *locator):
         self.wait.until(EC.element_to_be_clickable(locator), message=f'Element by {locator} not clickable').click()
 
+    def wait_url_changes(self, initial_url):
+        self.wait.until(EC.url_changes(initial_url), message=f'URL did not change from {initial_url}')
+
     def wait_element_visible(self, *locator):
         self.wait.until(EC.visibility_of_element_located(locator), message=f'Element by {locator} not visible')
+
+    def wait_element_invisible(self, *locator):
+        self.wait.until(EC.invisibility_of_element_located(locator),
+                        message=f'Element by {locator} should not be visible')
 
     def verify_text(self, expected_text, *locator):
         actual_text = self.driver.find_element(*locator).text

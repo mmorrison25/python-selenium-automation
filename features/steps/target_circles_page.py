@@ -5,9 +5,14 @@ from time import sleep
 BENEFIT_BOX = (By.CSS_SELECTOR, 'li[class*="styles__BenefitCard"]')
 
 
-@given('Target circle page is launched')
-def open_target_circles_page(context):
-    context.driver.get("https://www.target.com/circle")
+@given('Target Circle page is launched')
+def open_circle_page(context):
+    context.app.circle_page.open_circle_page()
+
+
+@then('Verify clicking through Circle tabs works')
+def verify_click_through_circle_tabs(context):
+    context.app.circle_page.verify_click_through_circle_tabs()
 
 
 @then('Verify {expected_amount} benefit boxes are displayed')

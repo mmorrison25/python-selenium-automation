@@ -1,4 +1,3 @@
-from lib2to3.fixes.fix_input import context
 from selenium.webdriver.common.by import By
 from pages.base_page import Page
 
