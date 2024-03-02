@@ -25,8 +25,8 @@ def browser_init(context, scenario_name):
 
     ### BROWSERSTACK ###
 
-    # bs_user = 'madisonmorrison_PwC8AG'
-    # bs_key = 'zwKxW2SNaLP4QXTtBymm'
+    # bs_user = ''
+    # bs_key = ''
     # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
     #
     # options = Options()
