@@ -16,3 +16,12 @@ Feature: Target sign in test scenarios
     And Switch to the newly opened window
     Then Verify Terms and Conditions page is opened
     And User can close new window and switch back to original
+
+  Scenario: User enters incorrect login credentials
+    Given Target site is launched
+    When Sign In option is clicked
+    And Sign In is clicked from right side nav menu
+    And Sign In page opened
+    And Enter incorrect login credentials
+    And Click Sign In button
+    Then Verify validation message is displayed

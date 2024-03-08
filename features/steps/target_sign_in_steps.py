@@ -29,6 +29,16 @@ def switch_to_new_window(context):
     print('Current window:', context.driver.current_window_handle)
 
 
+@when('Enter incorrect login credentials')
+def enter_incorrect_login_credentials(context):
+    context.app.sign_in_page.enter_incorrect_login_credentials()
+
+
+@when('Click Sign In button')
+def click_sign_in_button(context):
+    context.app.sign_in_page.click_sign_in_button()
+
+
 @then('Sign In page opened')
 def verify_sign_in_page_opened(context):
     context.app.sign_in_page.verify_sign_in_page_opened()
@@ -44,3 +54,8 @@ def close_window_and_switch_back_to_original(context):
     context.driver.close()
     context.app.sign_in_page.switch_to_window_by_id(context.original_window)
     print('After switching back:', context.original_window)
+
+
+@then('Verify validation message is displayed')
+def verify_validation_message(context):
+    context.app.sign_in_page.verify_validation_message()
